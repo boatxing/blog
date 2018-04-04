@@ -37,5 +37,5 @@ sftp插件，需要在项目根目录增加.ftpconfig配置文件，配置简单
 可以直接粘贴截图。图片可以选择截图保存在本地，通过相对路径引用。也可以选择截图保存到服务器。如果是上传到服务器，图片会自动保存到sm.ms服务器。保存到七牛云就不推荐，还需要填写七牛云的账号信息。注意粘贴图片的快捷键control+shift+v（mac下），并非ctrl + v 设置如下。
 ![](https://i.loli.net/2018/04/04/5ac4e35d0da5c.png)
 https://atom.io/packages/markdown-img-paste
-- markdown-pdf  
-转换markdownw格式文本为pdf文件，没有快捷键，稍微麻烦一点，看说明markdown-themeable-pdf更好用一点，但是一直安装不上。
+- markdown-themeable-pdf  
+转换markdownw格式文本为pdf文件，需要翻墙才能安装，快捷键ctrl + shift + e。
