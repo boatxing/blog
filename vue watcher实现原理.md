@@ -19,7 +19,7 @@ new Vue({
 ```
 watch对象的key可以是path，如："a.b"
 ## init watch  
-源文件 core/instance/state.js
+源文件 core/instance/state.js   
 initProps->initMethods->observe(data)->initComputed->initWatch
 ```
 export function initState (vm: Component) {
@@ -77,7 +77,7 @@ Vue.prototype.$watch = function (
 }
 ```
 ## Watcher对象怎么订阅状态变化通知
-core/observer/watcher.js
+core/observer/watcher.js   
 简化版watcher
 ```
 /* @flow */
@@ -140,7 +140,7 @@ export default class Watcher {
   }
 }
 ```
-pushTarget，core/observer/dep.js。设置当前watcher
+pushTarget，core/observer/dep.js   
 this.getter.call(vm, vm) 可以简化为vm._data[expOrFn]，获取value的时候会触发属性的get function（属性在initWatch之前已经做了observer），get后该watcher会被add到属性对应的dep实例的subs队列。
 ```
 Object.defineProperty(obj, key, {
@@ -148,7 +148,7 @@ Object.defineProperty(obj, key, {
   configurable: true,
   get: function reactiveGetter () {
     const value = getter ? getter.call(obj) : val
-    if (Dep.target) {
+    if (Dep.target) { //有watcher
       //订阅
       dep.depend()
     }
@@ -162,12 +162,13 @@ Object.defineProperty(obj, key, {
 depend（dep.js），Dep.target就是当前watcher
 ```
 depend () {
-  if (Dep.target) {
+  if (Dep.target) { //pushTarget时设置
     Dep.target.addDep(this)
   }
 }
 ```
-watcher.js，将该watcher添加到subs队列
+addDep，watcher.js    
+将该watcher添加到subs队列
 ```
 /**
  * Add a dependency to this directive.
