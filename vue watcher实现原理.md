@@ -140,7 +140,8 @@ export default class Watcher {
   }
 }
 ```
-pushTarget，core/observer/dep.js   
+pushTarget，core/observer/dep.js  
+defineReactive，core/observer/index.js 
 this.getter.call(vm, vm) 可以简化为vm._data[expOrFn]，获取value的时候会触发属性的get function（属性在initWatch之前已经做了observer），get后该watcher会被add到属性对应的dep实例的subs队列。
 ```
 Object.defineProperty(obj, key, {
